@@ -3,6 +3,17 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome young padawan</h1>
+    <p>What information do you seek?</p>
+    <br />
+    <br />
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+    @model SearchOptions
+    @Html.DropDownListFor(
+    _searchOptions => _searchOptions.searchFor,
+    new SelectList(ViewBag.Selectable, "searchFor", "searchTarget"),
+    "Choose search",
+    new { style = "width: 400px;" }
+    );
+
 </div>
